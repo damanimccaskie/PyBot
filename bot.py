@@ -3,6 +3,8 @@ import discord
 import time
 import asyncio
 
+import image
+
 messages = joined = 0
 
 def read_token():
@@ -79,7 +81,9 @@ async def on_message(message):
       await message.channel.send("The Prefix is '~'")
     elif message.content == ("corona"):
       await message.channel.send("\u26A0 CORONA DETECTED \u26A0 Contact (246)-536-4500 NOW If You Or Anyone You Know Has The Virus")
-    
+    elif message.content == "~image":
+      await image.run(message)
+      
     if message.content == "~help":
         embed = discord.Embed(title="Help on BOT", description="Some useful commands")
         embed.add_field(name="~hello", value="Greets the user")
