@@ -3,6 +3,8 @@ import discord
 import time
 import asyncio
 
+import image
+
 messages = joined = 0
 
 def read_token():
@@ -77,6 +79,8 @@ async def on_message(message):
       await message.channel.send("https://drive.google.com/drive/folders/12f2grZf1lycx9Iz-dKbFtFbMLgsJHlUy")
     elif message.content == "prefix":
       await message.channel.send("The Prefix is '~'")
+    elif message.content == "~image":
+      await image.run(message)
     
     if message.content == "~help":
         embed = discord.Embed(title="Help on BOT", description="Some useful commands")
