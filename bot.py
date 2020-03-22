@@ -52,7 +52,7 @@ async def on_member_join(member):
     global joined
     joined += 1
     for channel in member.server.channels:
-        if str(channel) == "general":
+        if str(channel) == "main":
             await client.send_message(f"""Welcome to the server {member.mention}""")
 
 
@@ -60,7 +60,7 @@ async def on_member_join(member):
 async def on_message(message):
     global messages
     messages += 1
-    bad_words = ["nigger", "corona", "coronavirus", "covid"]
+    bad_words = ["nigger"]
 
     for word in bad_words:
         if message.content == (word):
@@ -74,14 +74,16 @@ async def on_message(message):
     if message.content == ("~hello"):
       await message.channel.send("Hi") 
     elif message.content == "~users":
-      await message.channel.send(f"""# of Members: {id.member_count}""")
+      await message.channel.send(f"""Number of Members: {id.member_count}""")
     elif message.content == "~drive":
       await message.channel.send("https://drive.google.com/drive/folders/12f2grZf1lycx9Iz-dKbFtFbMLgsJHlUy")
     elif message.content == "prefix":
       await message.channel.send("The Prefix is '~'")
+    elif message.content == ("corona"):
+      await message.channel.send("\u26A0 CORONA DETECTED \u26A0 Contact (246)-536-4500 NOW If You Or Anyone You Know Has The Virus")
     elif message.content == "~image":
       await image.run(message)
-    
+      
     if message.content == "~help":
         embed = discord.Embed(title="Help on BOT", description="Some useful commands")
         embed.add_field(name="~hello", value="Greets the user")

@@ -1,2 +1,2 @@
 # PythonDSBot
-TBD
+The world's number one anti-corona bot.
