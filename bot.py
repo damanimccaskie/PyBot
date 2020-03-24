@@ -60,7 +60,7 @@ async def on_member_join(member):
 async def on_message(message):
     global messages
     messages += 1
-    bad_words = ["nigger"]
+    bad_words = ["nigger", "covid", "school", "project"]
 
     for word in bad_words:
         if message.content == (word):
@@ -72,7 +72,7 @@ async def on_message(message):
 
     
     if message.content == ("~hello"):
-      await message.channel.send("Hi") 
+      await message.channel.send("Hi and Welcome to \U0001F480 Suicide Race \U0001F480") 
     elif message.content == "~users":
       await message.channel.send(f"""Number of Members: {id.member_count}""")
     elif message.content == "~drive":
@@ -83,12 +83,14 @@ async def on_message(message):
       await message.channel.send("\u26A0 CORONA DETECTED \u26A0 Contact (246)-536-4500 NOW If You Or Anyone You Know Has The Virus")
     elif message.content == "~image":
       await image.run(message)
+    
       
     if message.content == "~help":
         embed = discord.Embed(title="Help on BOT", description="Some useful commands")
         embed.add_field(name="~hello", value="Greets the user")
         embed.add_field(name="~users", value="Prints number of users")
         embed.add_field(name="~drive", value="Prints link to SR Drive")
+        embed.add_field(name="~image", value="Shows specified image")
         await message.channel.send(content=None, embed=embed)
 
 client.loop.create_task(update_stats())
