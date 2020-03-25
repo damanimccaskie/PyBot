@@ -94,6 +94,7 @@ async def on_message(message):
         embed.add_field(name="~users", value="Prints number of users")
         embed.add_field(name="~drive", value="Prints link to SR Drive")
         embed.add_field(name="~image", value="Shows specified image")
+        embed.add_field(name="~flipcoin", value="Flips a coin (heads / tails)")
         await message.channel.send(content=None, embed=embed)
 
 client.loop.create_task(update_stats())
