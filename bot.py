@@ -11,7 +11,7 @@ messages = joined = 0
 def read_token():
     with open("token.txt", "r") as f:
         lines = f.readlines()
-        return lines[0].strip()
+    return lines[0].strip()
 
 token = read_token()
 
@@ -84,7 +84,7 @@ async def on_message(message):
       await message.channel.send("\u26A0 CORONA DETECTED \u26A0 Contact (246)-536-4500 NOW If You Or Anyone You Know Has The Virus")
     elif message.content == "~image":
       await image.run(message)
-    elif message.content == "~flipcoin"
+    elif message.content == "~flipcoin":
       await flipcoin.run(message)
     
       
