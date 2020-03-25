@@ -82,7 +82,7 @@ async def on_message(message):
       await message.channel.send("The Prefix is '~'")
     elif message.content == ("corona"):
       await message.channel.send("\u26A0 CORONA DETECTED \u26A0 Contact (246)-536-4500 NOW If You Or Anyone You Know Has The Virus")
-    elif message.content == "~image":
+    elif message.content.startswith("~image"):
       await image.run(message)
     elif message.content == "~flipcoin":
       await flipcoin.run(message)

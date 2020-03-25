@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 from random import choice
 
 async def run(main):
-    print(main.content) #debug
     args = main.content.split(" ") #split message into a list by spaces
 
     search = ""
@@ -12,7 +11,6 @@ async def run(main):
         search += args[i] + "+" #concat the words as a search string (with + for url)
     search = search.strip() #trim off whitespace from font and back of string
     search = search[:len(search) - 1] #remove the last , (it not needed)
-    print(search) #debugging
 
     default = ["random", "meme", "suicide"] #if user doesnt enter a search phrase
 
