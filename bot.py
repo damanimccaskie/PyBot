@@ -4,6 +4,7 @@ import time
 import asyncio
 
 import image
+import flipcoin
 
 messages = joined = 0
 
@@ -83,6 +84,8 @@ async def on_message(message):
       await message.channel.send("\u26A0 CORONA DETECTED \u26A0 Contact (246)-536-4500 NOW If You Or Anyone You Know Has The Virus")
     elif message.content == "~image":
       await image.run(message)
+    elif message.content == "~flipcoin"
+      await flipcoin.run(message)
     
       
     if message.content == "~help":
