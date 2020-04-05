@@ -110,6 +110,7 @@ async def on_message(message):
         cov_embed.add_field(name = "Youngest Case:", value="7")
         cov_embed.add_field(name = "Oldest Case:", value="83")
         cov_embed.add_field(name = "Under Investigation:", value="3")
+        cov_embed.add_field(name = "Other Facts:", value= ">Oldest Case (83) was married to the first death (81). \n >First Case was recorded on 17th March 2020. \n >Stage 3 was implemented on 26th March 2020 (Curfew from Saturday, March 28, to Tuesday, April 14, 8:00 p.m. to 6:00 a.m). \n >24-hour curfew was issued 3rd April 2020 to 14th April 2020. \n >One case which is accounted for in the total; actually never touched land in Barbados as it involved a Cruise Ship Passenger who stayed on the ship.")
         await message.channel.send(content=None, embed = cov_embed)
 
 client.loop.create_task(update_stats())
