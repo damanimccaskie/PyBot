@@ -95,7 +95,22 @@ async def on_message(message):
         embed.add_field(name="~drive", value="Prints link to SR Drive")
         embed.add_field(name="~image", value="Shows specified image")
         embed.add_field(name="~flipcoin", value="Flips a coin (heads / tails)")
+        embed.add_field(name="~covid", value="Displays COVID-19 information")
         await message.channel.send(content=None, embed=embed)
+
+    
+    if message.content == "~covid":
+        cov_embed = discord.Embed(title ="Coronavirus/COVID-19 Information", description= "Barbados Coronavirus Information")
+        cov_embed.add_field(name = "Tested:", value="527")
+        cov_embed.add_field(name = "Confirmed:", value="56")
+        cov_embed.add_field(name = "Recovered:", value="6")
+        cov_embed.add_field(name = "Deaths:", value="1")
+        cov_embed.add_field(name = "Active Cases:", value="49")
+        cov_embed.add_field(name = "Missing:", value="3")
+        cov_embed.add_field(name = "Youngest Case:", value="7")
+        cov_embed.add_field(name = "Oldest Case:", value="83")
+        cov_embed.add_field(name = "Under Investigation:", value="3")
+        await message.channel.send(content=None, embed = cov_embed)
 
 client.loop.create_task(update_stats())
 client.run(token)
