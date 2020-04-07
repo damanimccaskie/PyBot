@@ -101,16 +101,16 @@ async def on_message(message):
     
     if message.content == "~covid":
         cov_embed = discord.Embed(title ="Coronavirus/COVID-19 Information", description= "Barbados Coronavirus/COVID-19 Information")
-        cov_embed.add_field(name = "\U0001F9EATested:", value="557(+30)")
-        cov_embed.add_field(name = "\u2713Confirmed:", value="60(+4)")
+        cov_embed.add_field(name = "\U0001F9EATested:", value="602(+45)")
+        cov_embed.add_field(name = "\u2713Confirmed:", value="63(+3)")
         cov_embed.add_field(name = "Recovered:", value="6")
-        cov_embed.add_field(name = "\u2620Deaths:", value="2(+1)")
-        cov_embed.add_field(name = "Active Cases:", value="52(+4)")
-        cov_embed.add_field(name = "\U0001F6A8Missing:", value="3")
+        cov_embed.add_field(name = "\u2620Deaths:", value="3(+1)")
+        cov_embed.add_field(name = "Active Cases:", value="53(+1)")
+        cov_embed.add_field(name = "\U0001F6A8Missing:", value="-")
         cov_embed.add_field(name = "Youngest Case:", value="7")
         cov_embed.add_field(name = "Oldest Case:", value="95")
         cov_embed.add_field(name = "Under Investigation:", value="-")
-        cov_embed.add_field(name = "\u2753Other Facts:", value= ">Former Oldest Case (83) was married to the first death (81). \n >First Case was recorded on 17th March 2020. \n >Stage 3 was implemented on 26th March 2020 (Curfew from Saturday, March 28, to Tuesday, April 14, 8:00 p.m. to 6:00 a.m). \n >24-hour curfew was issued 3rd April 2020 to 14th April 2020. \n >One case which is accounted for in the total; actually never touched land in Barbados as it involved a Cruise Ship Passenger who stayed on the ship.")
+        cov_embed.add_field(name = "\u2753Other Facts:", value= ">Case (83) was married to the first death (81). \n >First Case was recorded on 17th March 2020. \n >Stage 3 was implemented on 26th March 2020 (Curfew from Saturday, March 28, to Tuesday, April 14, 8:00 p.m. to 6:00 a.m). \n >24-hour curfew was issued 3rd April 2020 to 14th April 2020. \n >One case which is accounted for in the total; actually never touched land in Barbados as it involved a Cruise Ship Passenger who stayed on the ship.")
         await message.channel.send(content=None, embed = cov_embed)
 
 client.loop.create_task(update_stats())
