@@ -101,12 +101,12 @@ async def on_message(message):
     
     if message.content == "~covid":
         cov_embed = discord.Embed(title ="Coronavirus/COVID-19 Information", description= "Barbados Coronavirus/COVID-19 Information")
-        cov_embed.add_field(name = "\U0001F9EATested:", value="602(+45)")
-        cov_embed.add_field(name = "\u2713Confirmed:", value="63(+3)")
-        cov_embed.add_field(name = "Recovered:", value="6")
-        cov_embed.add_field(name = "\u2620Deaths:", value="3(+1)")
-        cov_embed.add_field(name = "Active Cases:", value="54(+3)(-1)")
-        cov_embed.add_field(name = "Critical:", value="4(+1)")
+        cov_embed.add_field(name = "\U0001F9EATested:", value="602")
+        cov_embed.add_field(name = "\u2713Confirmed:", value="63")
+        cov_embed.add_field(name = "Recovered:", value="8(+2)")
+        cov_embed.add_field(name = "\u2620Deaths:", value="3")
+        cov_embed.add_field(name = "Active Cases:", value="52(-2)")
+        cov_embed.add_field(name = "Critical:", value="4")
         cov_embed.add_field(name = "Youngest Case:", value="7")
         cov_embed.add_field(name = "Oldest Case:", value="95")
         cov_embed.add_field(name = "Under Investigation:", value="-")
