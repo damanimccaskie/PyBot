@@ -101,7 +101,7 @@ async def on_message(message):
     
     if message.content == "~covid":
         cov_embed = discord.Embed(title ="\U0001F9A0 Coronavirus/COVID-19 Information", description= "\U0001F1E7\U0001F1E7 Barbados Coronavirus/COVID-19 Information")
-        cov_embed.add_field(name = ":syringe:Tested:", value="694(+92)")
+        cov_embed.add_field(name = ":syringe:Tested:", value="655(+53)")
         cov_embed.add_field(name = ":white_check_mark:Confirmed:", value="66(+3)")
         cov_embed.add_field(name = ":heart:Recovered:", value="11(+3)")
         cov_embed.add_field(name = ":skull:Deaths:", value="3")
