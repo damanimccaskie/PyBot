@@ -39,7 +39,7 @@ async def run(main):
     6 - active cases, 7 - serious critical, 8 - total cases / 1m pop, 9 - deaths / 1m pop,
     10 - total tests, 11 - total test / 1m pop'''
 
-    info_embed = discord.Embed(title ="\U0001F9A0 Coronavirus/COVID-19 Information", description= "\U0001F1E7\U0001F1E7 Corona info worldwide")
+    info_embed = discord.Embed(title ="\U0001F9A0 Coronavirus/COVID-19 Information", description= "Number 1 Source for Coronavirus/COVID-19 Information")
 
     headings = ["country", "total cases", "new cases", "total deaths", "new deaths", "total recovered",
     "active cases", "serious, critical", "total cases / 1m pop", "deaths / 1m pop", "total tests",
