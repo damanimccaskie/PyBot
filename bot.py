@@ -5,6 +5,7 @@ import asyncio
 
 import image
 import flipcoin
+import corona
 
 messages = joined = 0
 
@@ -16,7 +17,6 @@ def read_token():
 token = read_token()
 
 client = discord.Client()
-
 
 async def update_stats():
     await client.wait_until_ready()
@@ -70,7 +70,6 @@ async def on_message(message):
 
     id = client.get_guild(653020828719644683)
     channels = ["commands"]
-
     
     if message.content == ("~hello"):
       await message.channel.send("Hi and Welcome to \U0001F480 Suicide Race \U0001F480") 
@@ -86,6 +85,8 @@ async def on_message(message):
       await image.run(message)
     elif message.content == "~flipcoin":
       await flipcoin.run(message)
+    elif message.content.startswith("~cstats"):
+      await corona.run(message)
     
       
     if message.content == "~help":
