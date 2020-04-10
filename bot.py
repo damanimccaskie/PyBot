@@ -61,7 +61,7 @@ async def on_member_join(member):
 async def on_message(message):
     global messages
     messages += 1
-    bad_words = ["nigger", "covid", "school", "project"]
+    bad_words = ["nigger", "covid", "school", "project", "porn", "paper", "research", "uwi"]
 
     for word in bad_words:
         if message.content == (word):
