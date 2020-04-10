@@ -96,7 +96,7 @@ async def on_message(message):
         embed.add_field(name="~drive", value="Prints link to SR Drive")
         embed.add_field(name="~image", value="Shows specified image")
         embed.add_field(name="~flipcoin", value="Flips a coin (heads / tails)")
-        embed.add_field(name="~covid", value="Displays COVID-19 information")
+        embed.add_field(name="~cstats", value="Displays COVID-19 information with specified country.")
         await message.channel.send(content=None, embed=embed)
 
     
