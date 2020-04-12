@@ -7,11 +7,18 @@ def getRegion(l, r):
         if i[0].lower() == r.lower(): #case insenstive comparison
             return i
 
+def joinMsg(words):
+    phrase = ""
+    for i in range(1, len(words)):
+        phrase += words[i]
+    phrase = phrase.strip() #trim off whitespace from font and back of string
+    return phrase
+
 
 async def run(main):
     args = main.content.split(" ") #split message into a list by spaces
 
-    region = "World" if len(args) < 2 else args[1]
+    region = "World" if len(args) < 2 else joinMsg(args)
 
     headers = { 
         "Accept": "text/html",
