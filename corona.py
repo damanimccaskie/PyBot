@@ -7,6 +7,7 @@ def getRegion(l, r):
         if i[0].lower() == r.lower(): #case insenstive comparison
             return i
 
+
 def joinMsg(words):
     phrase = ""
     for i in range(1, len(words)):
@@ -15,20 +16,15 @@ def joinMsg(words):
     return phrase
 
 
-async def run(main):
-    args = main.content.split(" ") #split message into a list by spaces
-
-    region = "World" if len(args) < 2 else joinMsg(args)
-
+def parseTable(url, ID, first):
     headers = { 
         "Accept": "text/html",
         "User-Agent": "Mozilla/5.0 (X11; Linux i586; rv:31.0) Gecko/20100101 Firefox/71.0"
     }
 
-    url = "https://www.worldometers.info/coronavirus/"
     page = requests.get(url, headers=headers) #raw page
     dom = BeautifulSoup(page.content, "html.parser") #beautified dom
-    table = dom.find('table', attrs={'id': 'main_table_countries_today'}).findAll("tbody")[0]
+    table = dom.find('table', attrs={'id': ID}).findAll("tbody")[0]
 
     start = False
     list_of_rows = []
@@ -36,11 +32,24 @@ async def run(main):
         list_of_cells = []
         for cell in row.findAll('td'):
             text = cell.text.replace(' ', '')
-            list_of_cells.append(text)
-        if list_of_cells[0] == "World":
+            list_of_cells.append(text.strip())
+        if list_of_cells[0] == first:
             start = True
         if start:
             list_of_rows.append(list_of_cells[:-1])
+    return list_of_rows
+
+async def run(main):
+    args = main.content.split(" ") #split message into a list by spaces
+
+    region = "World" if len(args) < 2 else joinMsg(args)
+
+    urlsId = (("https://www.worldometers.info/coronavirus/", "main_table_countries_today", "World"),
+    ("https://www.worldometers.info/coronavirus/country/us/", "usa_table_countries_today", "USATotal"))
+
+    rows = []
+    for url, ID, first in urlsId:
+        rows += parseTable(url, ID, first)
     
     '''0 - country, 1 - total cases, 2 - new cases, 3 - total deaths, 4 - new deaths, 5 - total recovered
     6 - active cases, 7 - serious critical, 8 - total cases / 1m pop, 9 - deaths / 1m pop,
@@ -52,7 +61,7 @@ async def run(main):
     "active cases", "serious, critical", "total cases / 1m pop", "deaths / 1m pop", "total tests",
     "total tests / 1m pop"]
 
-    data = getRegion(list_of_rows, region)
+    data = getRegion(rows, region)
     if data:
         for h, v in zip(headings, data):
             info_embed.add_field(name = h, value = v if len(v) > 0 else "-")
