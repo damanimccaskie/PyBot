@@ -53,7 +53,7 @@ async def on_member_join(member):
     global joined
     joined += 1
     for channel in member.server.channels:
-        if str(channel) == "main":
+        if str(channel) == "general":
             await client.send_message(f"""Welcome to the server {member.mention}""")
 
 
@@ -61,7 +61,7 @@ async def on_member_join(member):
 async def on_message(message):
     global messages
     messages += 1
-    bad_words = ["nigger", "covid", "school", "project", "porn", "paper", "research", "uwi"]
+    bad_words = ["nigger", "covid", "school", "project", "porn", "paper", "research", "uwi", "SE", "se", "corona"]
 
     for word in bad_words:
         if message.content == (word):
