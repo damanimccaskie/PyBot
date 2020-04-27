@@ -55,7 +55,7 @@ async def run(main):
     6 - active cases, 7 - serious critical, 8 - total cases / 1m pop, 9 - deaths / 1m pop,
     10 - total tests, 11 - total test / 1m pop'''
 
-    info_embed = discord.Embed(title ="\U0001F9A0 Coronavirus/COVID-19 Information", description= "Number 1 Source for Coronavirus/COVID-19 Information")
+    info_embed = discord.Embed(title ="\U0001F9A0 COVID-19 Information", description= "Numero Uno Fuente Por Informacion de COVID-19")
 
     headings = ["country", "total cases", "new cases", "total deaths", "new deaths", "total recovered",
     "active cases", "serious, critical", "total cases / 1m pop", "deaths / 1m pop", "total tests",
@@ -67,4 +67,4 @@ async def run(main):
             info_embed.add_field(name = h, value = v if len(v) > 0 else "-")
         await main.channel.send(content=None, embed=info_embed)
     else:
-        await main.channel.send("Seems we have no data for that region")
+        await main.channel.send(":no_entry_sign: Sorry we have no data for that region. Please try again! :no_entry_sign:")
