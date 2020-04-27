@@ -12,7 +12,7 @@ async def run(main):
     search = search.strip() #trim off whitespace from font and back of string
     search = search[:len(search) - 1] #remove the last , (it not needed)
 
-    default = ["random", "meme", "suicide"] #if user doesnt enter a search phrase
+    default = ["random", "meme", "suicide", "corona", "pepe julian onziema"] #if user doesnt enter a search phrase
 
     headers = { 
         "Accept": "text/html",
@@ -26,7 +26,7 @@ async def run(main):
     urls = [i["href"] for i in links] #get all the links from the a's using list comprehension
 
     if len(urls) < 1: #no image results found 
-        await main.channel.send("Couldn't find any images that match that description... srry")
+        await main.channel.send(":x: Couldn't find any images that match that description... srry :x:")
         print("No results")
         return
 
