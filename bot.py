@@ -7,7 +7,9 @@ import image
 import flipcoin
 import corona
 
+
 messages = joined = 0
+
 
 def read_token():
     with open("token.txt", "r") as f:
@@ -17,6 +19,14 @@ def read_token():
 token = read_token()
 
 client = discord.Client()
+
+
+
+# async def on_ready():
+#     activity = discord.Game(name="~help", type=3)
+#     await client.change_presence(status=discord.Status.idle, activity=activity)
+#     print("Bot is ready!")
+
 
 async def update_stats():
     await client.wait_until_ready()
@@ -54,7 +64,7 @@ async def on_member_join(member):
     joined += 1
     for channel in member.server.channels:
         if str(channel) == "general":
-            await client.send_message(f"""Welcome to the server {member.mention}""")
+            await message.channel.send(f"""Welcome to the server {member.mention}""")
 
 
 @client.event
@@ -99,22 +109,7 @@ async def on_message(message):
         embed.add_field(name="~cstats", value="Displays COVID-19 information with specified country.")
         await message.channel.send(content=None, embed=embed)
 
-    
-    if message.content == "~covid":
-        cov_embed = discord.Embed(title ="\U0001F9A0 Coronavirus/COVID-19 Information", description= "\U0001F1E7\U0001F1E7 Barbados Coronavirus/COVID-19 Information")
-        cov_embed.add_field(name = ":syringe:Tested:", value="694(+92)")
-        cov_embed.add_field(name = ":white_check_mark:Confirmed:", value="66(+3)")
-        cov_embed.add_field(name = ":heart:Recovered:", value="11(+3)")
-        cov_embed.add_field(name = ":skull:Deaths:", value="3")
-        cov_embed.add_field(name = ":arrow_forward:Active Cases:", value="52(+3)(-3)")
-        cov_embed.add_field(name = ":x:Critical:", value="4")
-        cov_embed.add_field(name = ":baby:Youngest Case:", value="7")
-        cov_embed.add_field(name = ":older_man:Oldest Case:", value="95")
-        cov_embed.add_field(name = ":mens:Males:", value="32")
-        cov_embed.add_field(name = ":womens:Females:", value="34")
-        cov_embed.add_field(name = ":mag:Under Investigation:", value="-")
-        cov_embed.add_field(name = ":question:Other Facts:", value= ":one: First Case was recorded on 17th March 2020. \n :two: Stage 3 was implemented on 26th March 2020 (Curfew from Saturday, March 28, to Tuesday, April 14, 8:00 p.m. to 6:00 a.m). \n :three: 24-hour curfew was issued 3rd April 2020 to 14th April 2020.")
-        await message.channel.send(content=None, embed = cov_embed)
+ 
 
 client.loop.create_task(update_stats())
 client.run(token)
