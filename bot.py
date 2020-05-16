@@ -71,12 +71,21 @@ async def on_member_join(member):
 async def on_message(message):
     global messages
     messages += 1
+<<<<<<< HEAD
+    bad_words = ["nigger", "covid", "school", "project", "porn", "paper", "research", "uwi", "se",
+    "corona", "paul", "walcot", "lowe", "hillary"]
+
+    if message.author == client.user:
+      return
+=======
     bad_words = ["nigger", "covid", "school", "project", "porn", "paper", "research", "uwi", "SE", "se", "corona"]
+>>>>>>> 15285d887a84c6c567a7eeb7003f1d5a9cb425e2
 
     for word in bad_words:
-        if message.content == (word):
-            print("A bad word was said")
+        if message.content.lower().find(word) != -1:
+            print("A bad word was said ")
             await message.channel.send("Stop cursing you little fucking nigger!")
+            break
 
     id = client.get_guild(653020828719644683)
     channels = ["commands"]

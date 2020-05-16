@@ -1,10 +1,12 @@
-import requests
-import discord
 from bs4 import BeautifulSoup
+import discord
+import re
+import requests
+
 
 def getRegion(l, r):
     for i in l:
-        if i[0].lower() == r.lower(): #case insenstive comparison
+        if (i.get("Country, Other") or i.get("USA State")).lower() == r.lower(): #case insenstive comparison
             return i
 
 
@@ -16,6 +18,13 @@ def joinMsg(words):
     return phrase
 
 
+def extract_from_tag(tag, line):
+    closer = "</" + tag + ">"
+    regex = r'(<'+tag+'[^>]*>)'
+
+    line = line[re.search(regex, line).span()[1]:-5].replace("\n", "").replace("\xa0", " ")
+    return line.replace("<nobr>1M pop</nobr>", "1M pop").replace('<br>', ' ').replace("</br>", "").replace("<br/>", " ")
+
 def parseTable(url, ID, first):
     headers = { 
         "Accept": "text/html",
@@ -25,18 +34,26 @@ def parseTable(url, ID, first):
     page = requests.get(url, headers=headers) #raw page
     dom = BeautifulSoup(page.content, "html.parser") #beautified dom
     table = dom.find('table', attrs={'id': ID}).findAll("tbody")[0]
+    tableHead = dom.find('table', attrs={'id': ID}).findAll("thead")[0]
 
     start = False
+    indexed = False
     list_of_rows = []
+    headings = [extract_from_tag("th", str(th)) for th in tableHead.findAll('th')[0:]]
+
     for row in table.findAll('tr')[0:]:
         list_of_cells = []
         for cell in row.findAll('td'):
             text = cell.text.replace(' ', '')
             list_of_cells.append(text.strip())
-        if list_of_cells[0] == first:
+        indexed = list_of_cells[0] == '' or list_of_cells[0].isnumeric()
+        if list_of_cells[1 if indexed else 0] == first:
             start = True
         if start:
-            list_of_rows.append(list_of_cells[:-1])
+            region = dict()
+            for h, i in zip(headings, range(0, len(headings))):
+                region[h] = list_of_cells[i]
+            list_of_rows.append(region)
     return list_of_rows
 
 async def run(main):
@@ -57,14 +74,19 @@ async def run(main):
 
     info_embed = discord.Embed(title ="\U0001F9A0 COVID-19 Information", description= "Numero Uno Fuente Por Informacion de COVID-19")
 
-    headings = ["country", "total cases", "new cases", "total deaths", "new deaths", "total recovered",
+    '''headings = ["country", "total cases", "new cases", "total deaths", "new deaths", "total recovered",
     "active cases", "serious, critical", "total cases / 1m pop", "deaths / 1m pop", "total tests",
     "total tests / 1m pop"]
 
+    headingsUSA = ["USA State", "Total Cases", "New Cases", "Total Deaths", "New Deaths", "Active Cases",
+    "Tot Cases/ 1M pop", "Deaths/ 1M pop", "Total Tests", "Tests/ 1M pop"]'''
+
     data = getRegion(rows, region)
     if data:
-        for h, v in zip(headings, data):
-            info_embed.add_field(name = h, value = v if len(v) > 0 else "-")
+        for heading in data:
+            if heading == "Source" or heading == "Projections":
+                continue
+            info_embed.add_field(name = heading, value = data[heading] if len(data[heading]) > 0 else "-")
         await main.channel.send(content=None, embed=info_embed)
     else:
         await main.channel.send(":no_entry_sign: Sorry we have no data for that region. Please try again! :no_entry_sign:")
