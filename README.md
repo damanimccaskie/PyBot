@@ -3,3 +3,45 @@ This is a Discord Bot built using discord.py rewrite.
 The token can be manipulated at the bottom of the "bot.py" file in the "client.run()" function.
 
 Python3, Python3-pip, bs4, discord, random, requests, asyncio, youtube_dl are dependencies needed.
+
+# PyBot
+The Python Discord Bot
+
+Python Discord Bot Used Exclusively For The Suicide Race Discord Server, Will Be Available For More Soon!
+
+
+## General Commands
+<ul>
+<li>Ban:
+  ban       Specify a user to ban.</li>
+<li>Clear:
+  clear     Clears a specified amount of messages.</li>
+<li>Covid:
+  covid     Displays COVID Info for a specified country.</li>
+<li>FlipCoin:
+  flipcoin  Flips a virtual coin.</li>
+<li>Image:
+  image     Displays a specified image.</li>
+<li>Kick:
+  kick      Kicks a specified user.</li>
+<li>Music:
+  join      Joins a voice channel
+  play      Plays a file from the local filesystem
+  stop      Stops and disconnects the bot from voice
+  stream    Streams from a url (same as yt, but doesn't predownload)
+  volume    Changes the player's volume
+  yt        Plays from a url (almost anything youtube_dl supports)</li>
+<li>Ping:
+  ping      Shows the ping.</li>
+<li>Polls:
+  poll      Interactively creates a poll with the following question.
+  quickpoll Makes a poll quickly.<li>
+<li>Unban:
+  unban     Unbans a specified user.</li>
+<li>_8ball:
+  _8ball    Ask 8Ball a question.</li>
+<li>No Category:
+  help      Shows this message
+  load      Loads a command.
+  unload    Unloads a command.</li>
+</ul>
