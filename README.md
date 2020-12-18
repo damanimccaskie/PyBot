@@ -45,7 +45,10 @@ Python Discord Bot Used Exclusively For The Suicide Race Discord Server, Will Be
 <li>_8ball:
   _8ball    Ask 8Ball a question.</li>
 <li>No Category:
-  help      Shows this message
-  load      Loads a command.
-  unload    Unloads a command.</li>
+<ul>
+  <li>help      Shows this message</li>
+  <li>load      Loads a command.</li>
+  <li>unload    Unloads a command.</li>
+  </ul>
+</li>
 </ul>
