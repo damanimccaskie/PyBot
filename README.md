@@ -44,9 +44,10 @@ Python Discord Bot Used Exclusively For The Suicide Race Discord Server, Will Be
   unban-     Unbans a specified user.</li>
 <li>_8ball:
   _8ball-    Ask 8Ball a question.</li>
-<li>No Category:
-<ul>
-  <li>help-      Shows this message</li>
+<li>Help: 
+  help-    shows commands.</li>
+<li> Loading:
+ <ul>
   <li>load-      Loads a command.</li>
   <li>unload-    Unloads a command.</li>
   </ul>
