@@ -35,8 +35,11 @@ Python Discord Bot Used Exclusively For The Suicide Race Discord Server, Will Be
 <li>Ping:
   ping      Shows the ping.</li>
 <li>Polls:
-  poll      Interactively creates a poll with the following question.
-  quickpoll Makes a poll quickly.<li>
+  <ul>
+    <li>poll      Interactively creates a poll with the following question.</li>
+    <li>quickpoll Makes a poll quickly.</li>
+  </ul>
+  </li>
 <li>Unban:
   unban     Unbans a specified user.</li>
 <li>_8ball:
