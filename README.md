@@ -24,7 +24,8 @@ Python Discord Bot Used Exclusively For The Suicide Race Discord Server, Will Be
   image     Displays a specified image.</li>
 <li>Kick:
   kick      Kicks a specified user.</li>
-<li><ul>Music:
+<li>
+  <ul>Music:
   <li>join      Joins a voice channel</li>
   <li>play      Plays a file from the local filesystem</li>
   <li>stop      Stops and disconnects the bot from voice</li>
