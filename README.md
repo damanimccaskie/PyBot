@@ -1,15 +1,12 @@
-This is a Discord Bot built using discord.py rewrite.
-
-The token can be manipulated at the bottom of the "bot.py" file in the "client.run()" function.
-
-Python3, Python3-pip, bs4, discord, random, requests, asyncio, youtube_dl are dependencies needed.
 
 # PyBot
 The Python Discord Bot
-
-Python Discord Bot Used Exclusively For The Suicide Race Discord Server, Will Be Available For More Soon!
-
-
+<ul>
+  <li>This is a Discord Bot built using discord.py rewrite</li>
+  <li>Used Exclusively For The S-Race Discord Server, Will Be Available For More Soon!</li> 
+  <li>Python3, Python3-pip, bs4, discord, random, requests, asyncio, youtube_dl are dependencies needed.</li>
+  <li>The token can be manipulated at the bottom of the "bot.py" file in the "client.run()" function.</li>
+</ul>
 ## General Commands
 <ul>
 <li>Ban:
