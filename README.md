@@ -24,13 +24,13 @@ Python Discord Bot Used Exclusively For The Suicide Race Discord Server, Will Be
   image     Displays a specified image.</li>
 <li>Kick:
   kick      Kicks a specified user.</li>
-<li>Music:
-  join      Joins a voice channel
-  play      Plays a file from the local filesystem
-  stop      Stops and disconnects the bot from voice
-  stream    Streams from a url (same as yt, but doesn't predownload)
-  volume    Changes the player's volume
-  yt        Plays from a url (almost anything youtube_dl supports)</li>
+<li><ul>Music:
+  <li>join      Joins a voice channel</li>
+  <li>play      Plays a file from the local filesystem</li>
+  <li>stop      Stops and disconnects the bot from voice</li>
+  <li>stream    Streams from a url (same as yt, but doesn't predownload)</li>
+  <li>volume    Changes the player's volume</li>
+  <li>yt        Plays from a url (almost anything youtube_dl supports)</li></uL></li>
 <li>Ping:
   ping      Shows the ping.</li>
 <li>Polls:
