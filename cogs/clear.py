@@ -1,4 +1,4 @@
-import discord
+# import discord
 from discord.ext import commands
 
 
@@ -9,7 +9,7 @@ class Clear(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         print("Clear is ready.")
-  
+
     @commands.command(aliases=['purge'])
     async def clear(self, ctx, amount=5):
         """Clears a specified amount of messages."""

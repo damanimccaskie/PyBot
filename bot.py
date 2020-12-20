@@ -17,11 +17,9 @@ status = cycle(['with .help', 'with yo Momma!', 'with Death!', 'with COVID!'])
 
 
 client = commands.Bot(command_prefix='.')
-#client = commands.Bot(command_prefix = get_prefix)
+# client = commands.Bot(command_prefix = get_prefix)
 
-
-
-#cogs
+# cogs
 
 
 @client.command()
@@ -44,7 +42,7 @@ def loadAll():
 
 loadAll()
 
-#events
+# events
 
 
 @client.event
@@ -59,7 +57,7 @@ async def on_member_join(member): print(f'{member} has joined the server.')
 
 @client.event
 async def on_member_remove(member): print(f'{member} has left the server.')
-    
+
 
 # @client.event
 # async def on_guild_join(guild):
@@ -82,7 +80,6 @@ async def on_member_remove(member): print(f'{member} has left the server.')
 #     json.dump(prefixes, f, indent=4)
 
 
-
 # #commands
 # @client.command()
 # async def changeprefix(ctx, newprefix):
@@ -93,11 +90,11 @@ async def on_member_remove(member): print(f'{member} has left the server.')
 
 #     with open("prefixes.json", "w") as f:
 #       json.dump(prefixes, f, indent=4)
-       
+
 #     await ctx.send(f"Prefix changed to: {newprefix}")
 
-#Note to self .... * means to take in all arguments after, as one string
-#tasks
+# Note to self .... * means to take in all arguments after, as one string
+# tasks
 @tasks.loop(seconds=1800)
 async def change_status():
     await client.change_presence(status=discord.Status.online, activity=discord.Game(next(status)))
