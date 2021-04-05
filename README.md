@@ -7,7 +7,7 @@ The Python Discord Bot
   <li>Python3, Python3-pip, bs4, discord, random, requests, asyncio, youtube_dl are dependencies needed.</li>
   <li>The token can be manipulated at the bottom of the "bot.py" file in the "client.run()" function.</li>
 </ul>
-# General Commands
+General Commands
 <ul>
 <li>Ban:
   ban-       Specify a user to ban.</li>
