@@ -12,9 +12,8 @@ class BadWord(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        bad_words = ["nigger", "covid", "school", "project", "porn", "paper",
-                     "research", "uwi", "se", "corona", "paul", "walcot",
-                     "lowe", "hilary"]
+        bad_words = ["covid", "school", "project", "paper",
+                     "research", "corona"]
 
         # dont check for bad words of bot (can lead to infinite loop)
         if message.author == self.client.user:
